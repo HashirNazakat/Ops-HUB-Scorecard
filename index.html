@@ -4,7 +4,6 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>UB11 – SORT OPS HUB (Live)</title>
-
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
   <style>
@@ -84,23 +83,17 @@
     .kpi .t{color:var(--muted);font-size:12px}
     .kpi .v{margin-top:6px;font-size:22px;font-weight:900}
     .kpi .b{margin-top:4px;color:var(--muted2);font-size:11px;display:flex;gap:8px;align-items:center}
-    .grade{
-      font-family:var(--mono);font-weight:900;padding:4px 8px;border-radius:999px;border:1px solid var(--stroke);
-      background:rgba(0,0,0,.22);letter-spacing:.4px;
-    }
+    .grade{font-family:var(--mono);font-weight:900;padding:4px 8px;border-radius:999px;border:1px solid var(--stroke);background:rgba(0,0,0,.22);letter-spacing:.4px;}
     .gAplus{border-color:rgba(54,255,177,.50);color:var(--good)}
     .gA{border-color:rgba(38,208,124,.40);color:var(--relay)}
     .gC{border-color:rgba(255,200,87,.45);color:var(--warn)}
     .gF{border-color:rgba(255,92,122,.50);color:var(--bad)}
     .gNA{border-color:rgba(255,255,255,.14);color:rgba(234,241,255,.55)}
-
     .sectionGrid{display:grid;gap:12px;margin-top:12px}
-    .section{border:1px solid var(--stroke);border-radius:18px;overflow:hidden;
-      background:linear-gradient(180deg, rgba(12,23,48,.62), rgba(10,15,28,.62));}
+    .section{border:1px solid var(--stroke);border-radius:18px;overflow:hidden;background:linear-gradient(180deg, rgba(12,23,48,.62), rgba(10,15,28,.62));}
     .sectionTop{
       padding:12px 14px;display:flex;justify-content:space-between;gap:12px;align-items:flex-start;
-      border-bottom:1px solid var(--stroke);
-      background:linear-gradient(180deg, rgba(38,208,124,.08), rgba(0,0,0,0));
+      border-bottom:1px solid var(--stroke);background:linear-gradient(180deg, rgba(38,208,124,.08), rgba(0,0,0,0));
     }
     .sectionTop h3{margin:0;font-size:13px}
     .sectionTop p{margin:6px 0 0;color:var(--muted);font-size:12px}
@@ -110,32 +103,25 @@
     .metricGrid{padding:12px 14px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
     @media(max-width:1200px){.metricGrid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:720px){.metricGrid{grid-template-columns:1fr}}
-    .metric{
-      border:1px solid var(--stroke);border-radius:16px;padding:10px;
-      background:linear-gradient(180deg, rgba(11,16,32,.72), rgba(10,15,28,.68));
-    }
+    .metric{border:1px solid var(--stroke);border-radius:16px;padding:10px;background:linear-gradient(180deg, rgba(11,16,32,.72), rgba(10,15,28,.68));}
     .metric .row1{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
     .metric .name{color:var(--muted);font-size:12px}
     .metric .val{margin-top:6px;font-size:18px;font-weight:900}
     .metric .sub{margin-top:4px;color:var(--muted2);font-size:11px;display:flex;gap:8px;align-items:center}
     .spark{height:36px}
-
     .sideGrid{display:grid;gap:14px}
     .list{display:flex;flex-direction:column;gap:10px}
-    .item{border:1px solid var(--stroke);border-radius:14px;padding:10px;
-      background:linear-gradient(180deg, rgba(12,23,48,.62), rgba(10,15,28,.62));}
+    .item{border:1px solid var(--stroke);border-radius:14px;padding:10px;background:linear-gradient(180deg, rgba(12,23,48,.62), rgba(10,15,28,.62));}
     .item .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
     .item .ttl{font-weight:900}
     .item .own{color:var(--muted);font-size:12px;margin-top:3px}
     .item .why{color:var(--muted2);font-size:12px;margin-top:6px;line-height:1.25}
-    .pill{font-family:var(--mono);padding:4px 8px;border-radius:999px;border:1px solid var(--stroke);
-      color:var(--muted);font-size:11px;white-space:nowrap;}
+    .pill{font-family:var(--mono);padding:4px 8px;border-radius:999px;border:1px solid var(--stroke);color:var(--muted);font-size:11px;white-space:nowrap;}
     .health{display:flex;flex-direction:column;gap:8px;color:var(--muted2);font-size:12px;line-height:1.25}
     .dot{width:10px;height:10px;border-radius:50%}
     .dot.ok{background:var(--relay)}
     .dot.bad{background:var(--bad)}
     .mono{font-family:var(--mono)}
-    .foot{margin-top:14px;color:var(--muted2);font-size:12px;text-align:center}
   </style>
 </head>
 
@@ -156,7 +142,6 @@
         <div class="sub">Live dashboard powered by RAW_DAILY (public CSV)</div>
       </div>
     </div>
-
     <div class="badgeRow">
       <div class="chip"><span>Auto refresh</span> <b id="refreshEvery">60s</b></div>
       <div class="chip"><span>Last updated</span> <b id="lastUpdated">—</b></div>
@@ -183,51 +168,35 @@
 
     <div class="sideGrid">
       <div class="card">
-        <div class="cardHead">
-          <h2>Trend overview</h2>
-          <div class="meta">Risk vs strong</div>
-        </div>
+        <div class="cardHead"><h2>Trend overview</h2><div class="meta">Risk vs strong</div></div>
         <div class="cardBody"><canvas id="trendChart" height="180"></canvas></div>
       </div>
 
       <div class="card">
-        <div class="cardHead">
-          <h2>Top actions today</h2>
-          <div class="meta">Auto-generated</div>
-        </div>
+        <div class="cardHead"><h2>Top actions today</h2><div class="meta">Auto-generated</div></div>
         <div class="cardBody"><div class="list" id="actions"></div></div>
       </div>
 
       <div class="card">
-        <div class="cardHead">
-          <h2>Data health</h2>
-          <div class="meta">Fetch + mapping</div>
-        </div>
+        <div class="cardHead"><h2>Data health</h2><div class="meta">Fetch + mapping</div></div>
         <div class="cardBody"><div class="health" id="health"></div></div>
       </div>
     </div>
   </div>
-
-  <div class="foot">If values still lag, that’s Google “publish to web” caching. The page already force-busts URLs; Google can still lag a few minutes.</div>
 </div>
 
 <script>
-/* =============================
-   CONFIG
-============================= */
+/* CONFIG */
 const CONFIG = {
   refreshSeconds: 60,
   rawDailyCsvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7plaRzvTC_BGOUu9-xBAQngiy2TILdwpITAB0L9JP9MzjF9emqIwrjIlnJhxv7weQNeZdbfPNSzle/pub?gid=344521467&single=true&output=csv"
 };
 
-/* =============================
-   TARGETS (from your TARGETS sheet screenshot)
-============================= */
+/* TARGETS */
 const TARGETS = {
   "Total missorts":        {dir:"LOW_GOOD",  APLUS:10,   A:20,   C:30,   F:50},
   "Total actioned":        {dir:"HIGH_GOOD", APLUS:30,   A:20,   C:10,   F:5},
   "Total missort %":       {dir:"LOW_GOOD",  APLUS:0.0009, A:0.0012, C:0.0016, F:0.0050},
-
   "Box scan %":            {dir:"HIGH_GOOD", APLUS:1.00, A:0.995, C:0.99, F:0.0},
   "Missing %":             {dir:"LOW_GOOD",  APLUS:0.0010, A:0.0020, C:0.0030, F:0.0051},
   "Unexpected %":          {dir:"LOW_GOOD",  APLUS:0.0005, A:0.0010, C:0.0020, F:0.0051},
@@ -236,28 +205,23 @@ const TARGETS = {
   "Robot throughput":      {dir:"HIGH_GOOD", APLUS:6500, A:6000, C:5000, F:2500},
   "Robot calibration":     {dir:"HIGH_GOOD", APLUS:1.00, A:0.98, C:0.95, F:0.0},
   "Bag Fills (Count)":     {dir:"HIGH_GOOD", APLUS:700,  A:500,  C:350,  F:0},
-
   "Global Throughput":     {dir:"HIGH_GOOD", APLUS:130,  A:120,  C:110,  F:0},
   "Hourly rate (actual)":  {dir:"HIGH_GOOD", APLUS:18000, A:16000, C:14000, F:0},
   "PPMH":                  {dir:"HIGH_GOOD", APLUS:380,  A:350,  C:320,  F:0},
   "Direct CPP":            {dir:"LOW_GOOD",  APLUS:9.5,  A:10.0, C:11.0, F:12},
   "Staging completed":     {dir:"HIGH_GOOD", APLUS:1.00, A:0.98, C:0.95, F:0},
   "On time depart":        {dir:"HIGH_GOOD", APLUS:0.95, A:0.90, C:0.85, F:0},
-
   "FM asset tracker":      {dir:"HIGH_GOOD", APLUS:1.00, A:0.98, C:0.95, F:0},
   "Intake completed by":   {dir:"LOW_GOOD",  APLUS:"05:00", A:"06:00", C:"07:00", F:"08:00"},
   "Vinted processed by":   {dir:"LOW_GOOD",  APLUS:"04:00", A:"05:00", C:"06:00", F:"07:00"},
   "Calibration completed": {dir:"HIGH_GOOD", APLUS:1.00, A:0.98, C:0.95, F:0},
 };
 
-/* =============================
-   METRICS (EXACT to your RAW_DAILY headers)
-============================= */
+/* METRICS */
 const METRICS = [
   {section:"Compliance", key:"Total missorts",   fmt:"int",  aliases:["Total_Missorts"]},
   {section:"Compliance", key:"Total actioned",   fmt:"int",  aliases:["Total_Actioned"]},
   {section:"Compliance", key:"Total missort %",  fmt:"pct",  aliases:["Missort_%"]},
-
   {section:"Day Shift", key:"Box scan %",        fmt:"pct",  aliases:["BoxScan_%"]},
   {section:"Day Shift", key:"Missing %",         fmt:"pct",  aliases:["Missing_%"]},
   {section:"Day Shift", key:"Unexpected %",      fmt:"pct",  aliases:["Unexpected_%"]},
@@ -266,14 +230,12 @@ const METRICS = [
   {section:"Day Shift", key:"Robot throughput",  fmt:"int",  aliases:["Robot_Throughput"]},
   {section:"Day Shift", key:"Robot calibration", fmt:"pct",  aliases:["Robot_Calibration_%"]},
   {section:"Day Shift", key:"Bag Fills (Count)", fmt:"int",  aliases:["Bag_Fills_Count","Bag_Fills_(Count)","Bag Fills (Count)"]},
-
   {section:"Blue Team", key:"Global Throughput",     fmt:"int", aliases:["Global_Throughput","Global Throughput"]},
   {section:"Blue Team", key:"Hourly rate (actual)",  fmt:"int", aliases:["Hourly_Rate_Actual"]},
   {section:"Blue Team", key:"PPMH",                  fmt:"int", aliases:["PPMH"]},
   {section:"Blue Team", key:"Staging completed",     fmt:"pct", aliases:["Staging_Completed_%"]},
   {section:"Blue Team", key:"On time depart",        fmt:"pct", aliases:["OnTime_Depart_%"]},
   {section:"Blue Team", key:"Direct CPP",            fmt:"num", aliases:["Direct_CPP","Direct CPP"]},
-
   {section:"Green Team", key:"FM asset tracker",      fmt:"pct",  aliases:["FM_Asset_Tracker_%"]},
   {section:"Green Team", key:"Intake completed by",   fmt:"time", aliases:["Intake_Completed_By"]},
   {section:"Green Team", key:"Vinted processed by",   fmt:"time", aliases:["Vinted_Processed_By"]},
@@ -282,19 +244,15 @@ const METRICS = [
 
 const EXTRA_KPIS = [{name:"Volume sorted", header:"Volume_Sorted", fmt:"int"}];
 
-/* =============================
-   HELPERS
-============================= */
+/* HELPERS */
 const $ = (id)=>document.getElementById(id);
 const norm = (s)=>String(s??"").trim().toLowerCase();
+function stripBOM(s){ return s && s.charCodeAt(0)===0xFEFF ? s.slice(1) : s; }
 
 function nowStr(){
   const d=new Date();
   return d.toLocaleString(undefined,{year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit"});
 }
-
-// strips BOM if present
-function stripBOM(s){ return s && s.charCodeAt(0) === 0xFEFF ? s.slice(1) : s; }
 
 function parseCSV(text){
   const rows=[]; let row=[]; let cur=""; let inQ=false;
@@ -313,17 +271,14 @@ function parseCSV(text){
 function toNumber(x){
   const s=String(x??"").trim(); if(!s) return null;
   const clean=s.replace(/,/g,"").replace(/%/g,"");
-  const v=Number(clean);
-  return Number.isFinite(v)?v:null;
+  const v=Number(clean); return Number.isFinite(v)?v:null;
 }
-
 function toDecimalPercent(x){
   const s=String(x??"").trim(); if(!s) return null;
   if(s.includes("%")){const v=toNumber(s); return v==null?null:v/100;}
   const v=toNumber(s); if(v==null) return null;
   return v>1.5? v/100 : v;
 }
-
 function parseTimeToMinutes(t){
   if(t==null) return null;
   const s=String(t).trim();
@@ -332,32 +287,29 @@ function parseTimeToMinutes(t){
   const hh=+m[1], mm=+m[2], ss=m[3]?+m[3]:0;
   return hh*60+mm+(ss/60);
 }
-
+function parseDateLoose(s){
+  const str=String(s??"").trim(); if(!str) return null;
+  const iso=str.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+  if(iso){const d=new Date(+iso[1],+iso[2]-1,+iso[3]); return isNaN(d)?null:d;}
+  const dm=str.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+  if(dm){const d=new Date(+dm[3],+dm[2]-1,+dm[1]); return isNaN(d)?null:d;}
+  const d=new Date(str); return isNaN(d)?null:d;
+}
 function formatValue(fmt,v){
-  if(v==null || Number.isNaN(v)) return "—";
+  if(v==null||Number.isNaN(v)) return "—";
   if(fmt==="int") return Math.round(v).toLocaleString();
   if(fmt==="num") return (Math.round(v*1000)/1000).toLocaleString();
   if(fmt==="pct") return (v*100).toFixed(2)+"%";
   if(fmt==="time"){
-    const hh=Math.floor(v/60);
-    const mm=Math.round(v-hh*60);
+    const hh=Math.floor(v/60), mm=Math.round(v-hh*60);
     return String(hh).padStart(2,"0")+":"+String(mm).padStart(2,"0");
   }
   return String(v);
 }
-
-function gradeClass(g){
-  if(g==="A+") return "gAplus";
-  if(g==="A")  return "gA";
-  if(g==="C")  return "gC";
-  if(g==="F")  return "gF";
-  return "gNA";
-}
-
+function gradeClass(g){ return g==="A+"?"gAplus":g==="A"?"gA":g==="C"?"gC":g==="F"?"gF":"gNA"; }
 function gradeFromTarget(metricKey,val){
   const t=TARGETS[metricKey];
   if(!t || val==null || Number.isNaN(val)) return {grade:"—", reason:"No target/value"};
-
   if(t.dir==="LOW_GOOD"){
     if(typeof t.APLUS==="string"){
       const mins=val, aplus=parseTimeToMinutes(t.APLUS), a=parseTimeToMinutes(t.A), c=parseTimeToMinutes(t.C);
@@ -377,48 +329,69 @@ function gradeFromTarget(metricKey,val){
     return {grade:"F", reason:`< ${t.C}`};
   }
 }
+function scoreFromGrade(g){ return g==="A+"?4:g==="A"?3:g==="C"?2:g==="F"?1:0; }
+function cssSafe(s){ return String(s).replace(/[^a-zA-Z0-9_-]/g,"_"); }
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
 
-function parseDateLoose(s){
-  const str=String(s??"").trim(); if(!str) return null;
-  const iso=str.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
-  if(iso){const d=new Date(+iso[1],+iso[2]-1,+iso[3]); return isNaN(d)?null:d;}
-  const dm=str.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
-  if(dm){const d=new Date(+dm[3],+dm[2]-1,+dm[1]); return isNaN(d)?null:d;}
-  const d=new Date(str); return isNaN(d)?null:d;
+/* ========= HEADER ROW AUTO-DETECTION =========
+   Find which row is the real header row by scoring how many known columns it contains.
+*/
+const EXPECTED_HEADERS = [
+  "Date","DayName","Volume_Sorted",
+  "Total_Missorts","Total_Actioned","Missort_%",
+  "BoxScan_%","Missing_%","Unexpected_%","OT_Hours","Indirect_CPP",
+  "Robot_Throughput","Robot_Calibration_%","Bag_Fills_Count",
+  "Global_Throughput","Hourly_Rate_Actual","PPMH","Staging_Completed_%",
+  "OnTime_Depart_%","Direct_CPP",
+  "FM_Asset_Tracker_%","Intake_Completed_By","Vinted_Processed_By","Calibration_Completed_%"
+];
+
+function pickHeaderRow(rows){
+  const scan = Math.min(10, rows.length);
+  let bestIdx = 0;
+  let bestScore = -1;
+
+  for(let i=0;i<scan;i++){
+    const r = rows[i].map(x => stripBOM(String(x??"").trim()));
+    const set = new Set(r.map(x => norm(x)));
+    let score = 0;
+
+    for(const h of EXPECTED_HEADERS){
+      if(set.has(norm(h))) score++;
+    }
+
+    // extra: reward rows that contain "date" anywhere
+    if(r.some(x => norm(x).includes("date"))) score += 2;
+
+    if(score > bestScore){
+      bestScore = score;
+      bestIdx = i;
+    }
+  }
+  return {headerRowIndex: bestIdx, score: bestScore};
 }
 
-function scoreFromGrade(g){ return g==="A+"?4:g==="A"?3:g==="C"?2:g==="F"?1:0; }
-function cssSafe(s){return String(s).replace(/[^a-zA-Z0-9_-]/g,"_");}
-function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
-
-/* =============================
-   DATE COLUMN DETECTION (FIX)
-============================= */
 function findDateIndex(headers){
-  // exact "date"
   let idx = headers.findIndex(h => norm(h) === "date");
-  if(idx >= 0) return idx;
-
-  // contains "date" (handles BOM, extra spaces, etc.)
+  if(idx>=0) return idx;
   idx = headers.findIndex(h => norm(h).includes("date"));
-  if(idx >= 0) return idx;
-
-  // last resort: use first column
+  if(idx>=0) return idx;
   return 0;
 }
 
-/* =============================
-   LOAD RAW
-============================= */
+/* LOAD RAW */
 async function loadRaw(){
   const url = CONFIG.rawDailyCsvUrl + "&cachebust=" + Date.now();
   const res = await fetch(url, {cache:"no-store", headers:{"Cache-Control":"no-cache","Pragma":"no-cache"}});
   if(!res.ok) throw new Error("Failed to fetch CSV ("+res.status+")");
   const txt = await res.text();
   const rows = parseCSV(txt);
-  if(rows.length < 2) throw new Error("CSV has no data rows");
+  if(rows.length < 3) throw new Error("CSV does not have enough rows");
 
-  let headers = rows[0].map(h => stripBOM(String(h ?? "").trim()));
+  const pick = pickHeaderRow(rows);
+  const headers = rows[pick.headerRowIndex].map(h => stripBOM(String(h??"").trim()));
+  const dataRows = rows.slice(pick.headerRowIndex + 1);
+
   const hmap = new Map();
   headers.forEach((h,i)=>hmap.set(norm(h), i));
 
@@ -426,7 +399,6 @@ async function loadRaw(){
 
   const metricCol = new Map();
   const missing = [];
-
   for(const m of METRICS){
     let found = -1;
     for(const a of m.aliases){
@@ -444,49 +416,50 @@ async function loadRaw(){
   }
 
   const series = [];
-  for(const r of rows.slice(1)){
+  for(const r of dataRows){
     const d = parseDateLoose(r[dateIdx]);
     if(!d) continue;
 
     const values = {};
     for(const m of METRICS){
       const idx = metricCol.get(m.key);
-      if(idx == null){ values[m.key] = null; continue; }
+      if(idx == null){ values[m.key]=null; continue; }
       const cell = r[idx];
-      if(m.fmt==="pct") values[m.key] = toDecimalPercent(cell);
-      else if(m.fmt==="int" || m.fmt==="num") values[m.key] = toNumber(cell);
-      else if(m.fmt==="time") values[m.key] = parseTimeToMinutes(cell);
-      else values[m.key] = toNumber(cell);
+      if(m.fmt==="pct") values[m.key]=toDecimalPercent(cell);
+      else if(m.fmt==="int"||m.fmt==="num") values[m.key]=toNumber(cell);
+      else if(m.fmt==="time") values[m.key]=parseTimeToMinutes(cell);
+      else values[m.key]=toNumber(cell);
     }
 
     const extra = {};
     for(const x of EXTRA_KPIS){
       const idx = extraCol.get(x.header);
-      extra[x.header] = idx == null ? null : toNumber(r[idx]);
+      extra[x.header] = idx==null ? null : toNumber(r[idx]);
     }
 
     series.push({date:d, values, extra});
   }
 
   series.sort((a,b)=>a.date-b.date);
-  return {headers, series, missing, urlUsed:url, dateIdx};
+
+  return {
+    headers, series, missing, urlUsed:url,
+    headerRowIndex: pick.headerRowIndex,
+    headerScore: pick.score,
+    dateIdx
+  };
 }
 
 function sliceByMode(series){
   const mode = $("viewMode").value;
   if(mode==="all") return series.slice();
-  const n = mode==="last14" ? 14 : 7;
-  return series.slice(-n);
+  return series.slice(-(mode==="last14"?14:7));
 }
 
-/* =============================
-   CHARTS
-============================= */
+/* CHARTS */
 let trendChart=null;
 const sparkCharts=new Map();
-
 function destroySpark(key){ const c=sparkCharts.get(key); if(c){c.destroy(); sparkCharts.delete(key);} }
-
 function renderSpark(metricKey, canvas, labels, values){
   destroySpark(metricKey);
   const c = new Chart(canvas.getContext("2d"), {
@@ -496,7 +469,6 @@ function renderSpark(metricKey, canvas, labels, values){
   });
   sparkCharts.set(metricKey,c);
 }
-
 function renderTrend(slice){
   const labels=slice.map(x=>x.date.toLocaleDateString());
   const risk=[], strong=[];
@@ -510,7 +482,7 @@ function renderTrend(slice){
     risk.push(r); strong.push(g);
   }
   if(trendChart) trendChart.destroy();
-  trendChart=new Chart($("trendChart").getContext("2d"),{
+  trendChart=new Chart(document.getElementById("trendChart").getContext("2d"),{
     type:"line",
     data:{labels, datasets:[
       {label:"Risk (C+F)", data:risk, tension:.35, borderWidth:2, pointRadius:0, fill:true},
@@ -527,24 +499,17 @@ function renderTrend(slice){
   });
 }
 
-/* =============================
-   RENDER
-============================= */
+/* RENDER */
 function kpiTile(title,value,grade,sub){
   const div=document.createElement("div");
   div.className="kpi";
-  div.innerHTML=`
-    <div class="t">${title}</div>
-    <div class="v">${value}</div>
-    <div class="b"><span class="grade ${gradeClass(grade)}">${grade}</span><span>${sub}</span></div>`;
+  div.innerHTML=`<div class="t">${title}</div><div class="v">${value}</div><div class="b"><span class="grade ${gradeClass(grade)}">${grade}</span><span>${sub}</span></div>`;
   return div;
 }
-
 function renderTopKPIs(latest){
-  const el=$("topKPIs"); el.innerHTML="";
+  const el=document.getElementById("topKPIs"); el.innerHTML="";
   const vol=latest?.extra?.["Volume_Sorted"] ?? null;
   el.appendChild(kpiTile("Volume sorted", formatValue("int",vol), "—", "raw volume"));
-
   const headline=["Total missort %","Missing %","Indirect CPP"];
   for(const k of headline){
     const def=METRICS.find(m=>m.key===k);
@@ -553,16 +518,13 @@ function renderTopKPIs(latest){
     el.appendChild(kpiTile(k, formatValue(def.fmt,val), g, TARGETS[k] ? TARGETS[k].dir.replace("_"," ").toLowerCase() : "no target"));
   }
 }
-
 function renderSections(slice){
   const latest=slice[slice.length-1];
   const dates=slice.map(x=>x.date.toLocaleDateString());
-
   const sections={};
   for(const m of METRICS) (sections[m.section]??=[]).push(m);
   const order=["Compliance","Day Shift","Blue Team","Green Team"];
-
-  const wrap=$("sections"); wrap.innerHTML="";
+  const wrap=document.getElementById("sections"); wrap.innerHTML="";
   for(const sName of order){
     const ms=sections[sName]||[];
     let score=0,possible=0,fCount=0,cCount=0;
@@ -608,7 +570,6 @@ function renderSections(slice){
     }
   }
 }
-
 function buildActions(slice){
   const latest=slice[slice.length-1];
   const a=[];
@@ -616,45 +577,19 @@ function buildActions(slice){
     const v=latest.values[k]; if(v==null||Number.isNaN(v)) return;
     if(cond(v)) a.push({title,owner,due,why:why(v)});
   };
-
-  addIf("Total missorts", v=>v>=TARGETS["Total missorts"].C,
-    "Missorts containment sprint","Compliance Supervisor","Today",
-    v=>`Total missorts ${Math.round(v)} (C/F). 30-min root cause + immediate floor fix list.`);
-
-  addIf("Missing %", v=>v>=TARGETS["Missing %"].C,
-    "Missing control check","Day Supervisor","Today",
-    v=>`Missing % ${formatValue("pct",v)} (C/F). Audit intake scan discipline + swept handling + exceptions.`);
-
-  addIf("Unexpected %", v=>v>=TARGETS["Unexpected %"].C,
-    "Unexpected spike control","Day Supervisor","Today",
-    v=>`Unexpected % ${formatValue("pct",v)} (C/F). Check lane discipline + exception cage process.`);
-
-  addIf("Indirect CPP", v=>v>=TARGETS["Indirect CPP"].A,
-    "CPP recovery plan","Shift Manager","Today",
-    v=>`Indirect CPP ${formatValue("num",v)}. Tighten start-up + reduce idle time + remove blockers.`);
-
-  addIf("Robot throughput", v=>v<TARGETS["Robot throughput"].C,
-    "Robot throughput recovery","Day Supervisor + Tech/FME","Today",
-    v=>`Robot throughput ${formatValue("int",v)} (<C). Check jams, feed rate, reset cadence.`);
-
-  addIf("On time depart", v=>v<TARGETS["On time depart"].C,
-    "On-time depart recovery","Blue Supervisor + Dispatch","Today",
-    v=>`On-time depart ${formatValue("pct",v)} (<C). Run departure countdown and enforce cutoffs.`);
-
-  addIf("Intake completed by", v=>v>parseTimeToMinutes(TARGETS["Intake completed by"].C),
-    "Intake finish time pull-forward","Green Supervisor","Today",
-    v=>`Intake completed by ${formatValue("time",v)} (late). Add surge in last 60–90 mins.`);
-
-  addIf("Vinted processed by", v=>v>parseTimeToMinutes(TARGETS["Vinted processed by"].C),
-    "Vinted processing acceleration","Green Supervisor","Today",
-    v=>`Vinted processed by ${formatValue("time",v)} (late). Fix feed rate early + clear blockages.`);
-
+  addIf("Total missorts", v=>v>=TARGETS["Total missorts"].C, "Missorts containment sprint","Compliance Supervisor","Today", v=>`Total missorts ${Math.round(v)} (C/F). 30-min root cause + immediate floor fix list.`);
+  addIf("Missing %", v=>v>=TARGETS["Missing %"].C, "Missing control check","Day Supervisor","Today", v=>`Missing % ${formatValue("pct",v)} (C/F). Audit intake scan discipline + swept handling + exceptions.`);
+  addIf("Unexpected %", v=>v>=TARGETS["Unexpected %"].C, "Unexpected spike control","Day Supervisor","Today", v=>`Unexpected % ${formatValue("pct",v)} (C/F). Check lane discipline + exception cage process.`);
+  addIf("Indirect CPP", v=>v>=TARGETS["Indirect CPP"].A, "CPP recovery plan","Shift Manager","Today", v=>`Indirect CPP ${formatValue("num",v)}. Tighten start-up + reduce idle time + remove blockers.`);
+  addIf("Robot throughput", v=>v<TARGETS["Robot throughput"].C, "Robot throughput recovery","Day Supervisor + Tech/FME","Today", v=>`Robot throughput ${formatValue("int",v)} (<C). Check jams, feed rate, reset cadence.`);
+  addIf("On time depart", v=>v<TARGETS["On time depart"].C, "On-time depart recovery","Blue Supervisor + Dispatch","Today", v=>`On-time depart ${formatValue("pct",v)} (<C). Run departure countdown and enforce cutoffs.`);
+  addIf("Intake completed by", v=>v>parseTimeToMinutes(TARGETS["Intake completed by"].C), "Intake finish time pull-forward","Green Supervisor","Today", v=>`Intake completed by ${formatValue("time",v)} (late). Add surge in last 60–90 mins.`);
+  addIf("Vinted processed by", v=>v>parseTimeToMinutes(TARGETS["Vinted processed by"].C), "Vinted processing acceleration","Green Supervisor","Today", v=>`Vinted processed by ${formatValue("time",v)} (late). Fix feed rate early + clear blockages.`);
   if(!a.length) a.push({title:"No critical actions triggered",owner:"—",due:"—",why:"KPIs mostly A/A+ today. Stay on the same plan; watch volatility."});
   return a.slice(0,5);
 }
-
 function renderActions(list){
-  const box=$("actions"); box.innerHTML="";
+  const box=document.getElementById("actions"); box.innerHTML="";
   for(const x of list){
     const el=document.createElement("div");
     el.className="item";
@@ -667,57 +602,59 @@ function renderActions(list){
     box.appendChild(el);
   }
 }
-
 function renderHealth(obj){
-  const box=$("health"); box.innerHTML="";
+  const box=document.getElementById("health"); box.innerHTML="";
   const line=(ok,html)=>`<div style="display:flex;gap:10px;align-items:center"><span class="dot ${ok?'ok':'bad'}"></span><span>${html}</span></div>`;
-  const hdrPreview = obj.headers.slice(0,12).map(h=>`<span class="mono">${escapeHtml(h)}</span>`).join(", ");
+  const hdrPreview = obj.headers.slice(0,16).map(h=>`<span class="mono">${escapeHtml(h)}</span>`).join(", ");
 
   box.innerHTML =
-    line(true, `Rows parsed: <b>${obj.seriesCount}</b> · dateIdx: <b>${obj.dateIdx}</b>`) +
-    line(true, `Latest date: <b>${escapeHtml(obj.latestDateStr)}</b>`) +
-    line(true, `Headers (first 12): ${hdrPreview}`) +
+    line(true, `Header row detected: <b>row ${obj.headerRowIndex+1}</b> (score ${obj.headerScore}) · dateIdx <b>${obj.dateIdx}</b>`) +
+    line(true, `Rows parsed: <b>${obj.seriesCount}</b> · Latest date <b>${escapeHtml(obj.latestDateStr)}</b>`) +
+    line(true, `Headers (first 16): ${hdrPreview}`) +
     (obj.missing.length ? line(false, `Unmapped KPI keys: <span class="mono">${escapeHtml(obj.missing.join(", "))}</span>`) : line(true, `All 21 KPI columns mapped ✅`)) +
     line(true, `Fetch: <span class="mono">${escapeHtml(obj.urlUsed)}</span>`);
 }
 
-/* =============================
-   MAIN LOOP
-============================= */
+/* MAIN */
 let running=false;
 async function refresh(){
   if(running) return;
   running=true;
   try{
-    $("btnRefresh").textContent="Refreshing…";
-    const {headers,series,missing,urlUsed,dateIdx}=await loadRaw();
+    document.getElementById("btnRefresh").textContent="Refreshing…";
+
+    const {headers,series,missing,urlUsed,headerRowIndex,headerScore,dateIdx}=await loadRaw();
     const slice=sliceByMode(series);
     if(!slice.length) throw new Error("No parsable rows (date parsing issue?)");
 
     const d0=slice[0].date.toLocaleDateString();
     const d1=slice[slice.length-1].date.toLocaleDateString();
-    $("rangeLabel").textContent=`${d0} → ${d1} · ${slice.length} days`;
-    $("lastUpdated").textContent=nowStr();
-    $("refreshEvery").textContent=CONFIG.refreshSeconds+"s";
+    document.getElementById("rangeLabel").textContent=`${d0} → ${d1} · ${slice.length} days`;
+    document.getElementById("lastUpdated").textContent=nowStr();
+    document.getElementById("refreshEvery").textContent=CONFIG.refreshSeconds+"s";
 
     const latest=slice[slice.length-1];
     renderTopKPIs(latest);
     renderSections(slice);
     renderTrend(slice);
     renderActions(buildActions(slice));
-    renderHealth({headers, missing, urlUsed, dateIdx, seriesCount:series.length, latestDateStr:latest.date.toLocaleDateString()});
+    renderHealth({
+      headers, missing, urlUsed, headerRowIndex, headerScore, dateIdx,
+      seriesCount: series.length, latestDateStr: latest.date.toLocaleDateString()
+    });
 
-  } catch(err){
-    $("health").innerHTML = `<div style="display:flex;gap:10px;align-items:center"><span class="dot bad"></span><span><b>ERROR:</b> ${escapeHtml(err.message||String(err))}</span></div>`;
+  }catch(err){
+    document.getElementById("health").innerHTML =
+      `<div style="display:flex;gap:10px;align-items:center"><span class="dot bad"></span><span><b>ERROR:</b> ${escapeHtml(err.message||String(err))}</span></div>`;
     console.error(err);
-  } finally{
-    $("btnRefresh").textContent="Refresh";
+  }finally{
+    document.getElementById("btnRefresh").textContent="Refresh";
     running=false;
   }
 }
 
-$("btnRefresh").addEventListener("click", refresh);
-$("viewMode").addEventListener("change", refresh);
+document.getElementById("btnRefresh").addEventListener("click", refresh);
+document.getElementById("viewMode").addEventListener("change", refresh);
 
 refresh();
 setInterval(refresh, CONFIG.refreshSeconds*1000);
