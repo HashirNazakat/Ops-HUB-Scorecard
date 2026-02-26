@@ -9,31 +9,16 @@
 
   <style>
     :root{
-      --bg:#070A10;
-      --panel:#0B1020;
-      --panel2:#0A0F1C;
-      --stroke:rgba(255,255,255,.08);
-      --stroke2:rgba(38,208,124,.22);
-      --text:#EAF1FF;
-      --muted:rgba(234,241,255,.65);
-      --muted2:rgba(234,241,255,.45);
-
-      --relay:#26D07C;
-      --good:#36FFB1;
-      --warn:#FFC857;
-      --bad:#FF5C7A;
-
-      --shadow:0 18px 50px rgba(0,0,0,.45);
-      --r:18px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --bg:#070A10; --stroke:rgba(255,255,255,.08); --stroke2:rgba(38,208,124,.22);
+      --text:#EAF1FF; --muted:rgba(234,241,255,.65); --muted2:rgba(234,241,255,.45);
+      --relay:#26D07C; --good:#36FFB1; --warn:#FFC857; --bad:#FF5C7A;
+      --shadow:0 18px 50px rgba(0,0,0,.45); --r:18px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     }
-
     *{box-sizing:border-box}
     body{
-      margin:0;
-      font-family:var(--sans);
-      color:var(--text);
+      margin:0;font-family:var(--sans);color:var(--text);
       background:
         radial-gradient(900px 520px at 15% 12%, rgba(38,208,124,.16), transparent 60%),
         radial-gradient(840px 500px at 85% 15%, rgba(92,111,255,.14), transparent 60%),
@@ -41,12 +26,9 @@
         var(--bg);
     }
     .wrap{max-width:1480px;margin:0 auto;padding:18px 18px 40px}
-
     header{
       display:flex;align-items:center;justify-content:space-between;gap:14px;
-      padding:14px 16px;
-      border:1px solid var(--stroke2);
-      border-radius:var(--r);
+      padding:14px 16px;border:1px solid var(--stroke2);border-radius:var(--r);
       background:linear-gradient(180deg, rgba(38,208,124,.14), rgba(11,16,32,.55));
       box-shadow:var(--shadow);
     }
@@ -59,161 +41,96 @@
     }
     .brand h1{margin:0;font-size:16px;letter-spacing:.4px}
     .brand .sub{margin:2px 0 0;color:var(--muted);font-size:12px}
-
     .badgeRow{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
     .chip{
-      padding:8px 10px;border-radius:999px;
-      background:rgba(12,23,48,.7);
-      border:1px solid var(--stroke);
-      color:var(--muted);
-      font-size:12px;
-      display:flex;align-items:center;gap:8px
+      padding:8px 10px;border-radius:999px;background:rgba(12,23,48,.7);
+      border:1px solid var(--stroke);color:var(--muted);font-size:12px;display:flex;gap:8px;align-items:center
     }
     .chip b{color:var(--text)}
     .btn{
-      cursor:pointer;user-select:none;
-      padding:9px 12px;border-radius:12px;
+      cursor:pointer;user-select:none;padding:9px 12px;border-radius:12px;
       background:linear-gradient(180deg, rgba(38,208,124,.22), rgba(38,208,124,.10));
-      border:1px solid rgba(38,208,124,.35);
-      color:var(--text);
-      font-weight:800;font-size:12px;
+      border:1px solid rgba(38,208,124,.35);color:var(--text);font-weight:800;font-size:12px;
     }
-    .btn:active{transform:translateY(1px)}
     .select{
-      padding:9px 10px;border-radius:12px;
-      background:rgba(12,23,48,.65);
-      border:1px solid var(--stroke);
-      color:var(--text);
-      font-size:12px;
-      outline:none;
+      padding:9px 10px;border-radius:12px;background:rgba(12,23,48,.65);
+      border:1px solid var(--stroke);color:var(--text);font-size:12px;outline:none;
     }
-
-    .grid{
-      margin-top:14px;
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:14px;
-    }
-    @media(max-width:1100px){ .grid{grid-template-columns:1fr} }
-
+    .grid{margin-top:14px;display:grid;grid-template-columns:1.15fr .85fr;gap:14px}
+    @media(max-width:1100px){.grid{grid-template-columns:1fr}}
     .card{
-      border:1px solid var(--stroke);
+      border:1px solid var(--stroke);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);
       background:linear-gradient(180deg, rgba(11,16,32,.92), rgba(10,15,28,.92));
-      border-radius:var(--r);
-      box-shadow:var(--shadow);
-      overflow:hidden;
     }
     .cardHead{
-      padding:12px 14px;
-      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;
       border-bottom:1px solid var(--stroke);
       background:linear-gradient(180deg, rgba(92,111,255,.10), rgba(0,0,0,0));
     }
     .cardHead h2{margin:0;font-size:13px;letter-spacing:.25px}
     .cardHead .meta{color:var(--muted);font-size:12px}
     .cardBody{padding:12px 14px}
-
-    .kpiRow{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:10px;
-    }
-    @media(max-width:900px){ .kpiRow{grid-template-columns:repeat(2,1fr)} }
-
+    .kpiRow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    @media(max-width:900px){.kpiRow{grid-template-columns:repeat(2,1fr)}}
     .kpi{
-      border:1px solid var(--stroke);
-      border-radius:16px;
+      border:1px solid var(--stroke);border-radius:16px;min-height:84px;position:relative;overflow:hidden;
       background:linear-gradient(180deg, rgba(12,23,48,.70), rgba(10,15,28,.65));
       padding:10px 10px 9px;
-      min-height:84px;
-      position:relative;
-      overflow:hidden;
     }
     .kpi:before{
-      content:"";
-      position:absolute;inset:-30px -80px auto auto;
-      width:160px;height:160px;border-radius:999px;
+      content:"";position:absolute;inset:-30px -80px auto auto;width:160px;height:160px;border-radius:999px;
       background:radial-gradient(circle at 30% 30%, rgba(38,208,124,.22), transparent 58%);
-      pointer-events:none;
     }
     .kpi .t{color:var(--muted);font-size:12px}
     .kpi .v{margin-top:6px;font-size:22px;font-weight:900}
     .kpi .b{margin-top:4px;color:var(--muted2);font-size:11px;display:flex;gap:8px;align-items:center}
-
     .grade{
-      font-family:var(--mono);
-      font-weight:900;
-      padding:4px 8px;border-radius:999px;
-      border:1px solid var(--stroke);
-      background:rgba(0,0,0,.22);
-      letter-spacing:.4px;
+      font-family:var(--mono);font-weight:900;padding:4px 8px;border-radius:999px;border:1px solid var(--stroke);
+      background:rgba(0,0,0,.22);letter-spacing:.4px;
     }
-    .gAplus{border-color:rgba(54,255,177,.50); color:var(--good)}
-    .gA{border-color:rgba(38,208,124,.40); color:var(--relay)}
-    .gC{border-color:rgba(255,200,87,.45); color:var(--warn)}
-    .gF{border-color:rgba(255,92,122,.50); color:var(--bad)}
-    .gNA{border-color:rgba(255,255,255,.14); color:rgba(234,241,255,.55)}
+    .gAplus{border-color:rgba(54,255,177,.50);color:var(--good)}
+    .gA{border-color:rgba(38,208,124,.40);color:var(--relay)}
+    .gC{border-color:rgba(255,200,87,.45);color:var(--warn)}
+    .gF{border-color:rgba(255,92,122,.50);color:var(--bad)}
+    .gNA{border-color:rgba(255,255,255,.14);color:rgba(234,241,255,.55)}
 
-    .sectionGrid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px}
-    .section{
-      border:1px solid var(--stroke);
-      border-radius:18px;
-      background:linear-gradient(180deg, rgba(12,23,48,.62), rgba(10,15,28,.62));
-      overflow:hidden;
-    }
+    .sectionGrid{display:grid;gap:12px;margin-top:12px}
+    .section{border:1px solid var(--stroke);border-radius:18px;overflow:hidden;
+      background:linear-gradient(180deg, rgba(12,23,48,.62), rgba(10,15,28,.62));}
     .sectionTop{
-      padding:12px 14px;
-      display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+      padding:12px 14px;display:flex;justify-content:space-between;gap:12px;align-items:flex-start;
       border-bottom:1px solid var(--stroke);
       background:linear-gradient(180deg, rgba(38,208,124,.08), rgba(0,0,0,0));
     }
-    .sectionTop h3{margin:0;font-size:13px;letter-spacing:.25px}
+    .sectionTop h3{margin:0;font-size:13px}
     .sectionTop p{margin:6px 0 0;color:var(--muted);font-size:12px}
     .scoreBox{text-align:right;min-width:180px}
     .scoreBox .score{font-size:18px;font-weight:900}
     .scoreBox .small{margin-top:2px;color:var(--muted2);font-size:11px}
-
-    .metricGrid{
-      padding:12px 14px;
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:10px;
-    }
-    @media(max-width:1200px){ .metricGrid{grid-template-columns:repeat(2,1fr)} }
-    @media(max-width:720px){ .metricGrid{grid-template-columns:1fr} }
-
+    .metricGrid{padding:12px 14px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    @media(max-width:1200px){.metricGrid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:720px){.metricGrid{grid-template-columns:1fr}}
     .metric{
-      border:1px solid var(--stroke);
-      border-radius:16px;
+      border:1px solid var(--stroke);border-radius:16px;padding:10px;
       background:linear-gradient(180deg, rgba(11,16,32,.72), rgba(10,15,28,.68));
-      padding:10px;
     }
-    .metric .row1{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-    .metric .name{color:var(--muted);font-size:12px;line-height:1.2}
+    .metric .row1{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+    .metric .name{color:var(--muted);font-size:12px}
     .metric .val{margin-top:6px;font-size:18px;font-weight:900}
     .metric .sub{margin-top:4px;color:var(--muted2);font-size:11px;display:flex;gap:8px;align-items:center}
-    .spark{margin-top:8px;height:36px}
+    .spark{height:36px}
 
-    .sideGrid{display:grid;grid-template-columns:1fr;gap:14px}
+    .sideGrid{display:grid;gap:14px}
     .list{display:flex;flex-direction:column;gap:10px}
-    .item{
-      border:1px solid var(--stroke);
-      background:linear-gradient(180deg, rgba(12,23,48,.62), rgba(10,15,28,.62));
-      border-radius:14px;padding:10px;
-    }
+    .item{border:1px solid var(--stroke);border-radius:14px;padding:10px;
+      background:linear-gradient(180deg, rgba(12,23,48,.62), rgba(10,15,28,.62));}
     .item .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
     .item .ttl{font-weight:900}
     .item .own{color:var(--muted);font-size:12px;margin-top:3px}
     .item .why{color:var(--muted2);font-size:12px;margin-top:6px;line-height:1.25}
-    .pill{
-      font-family:var(--mono);
-      padding:4px 8px;border-radius:999px;
-      border:1px solid var(--stroke);
-      color:var(--muted);
-      font-size:11px;
-      white-space:nowrap;
-    }
-    .health{display:flex;gap:10px;flex-wrap:wrap;align-items:center;color:var(--muted2);font-size:12px;line-height:1.25}
+    .pill{font-family:var(--mono);padding:4px 8px;border-radius:999px;border:1px solid var(--stroke);
+      color:var(--muted);font-size:11px;white-space:nowrap;}
+    .health{display:flex;flex-direction:column;gap:8px;color:var(--muted2);font-size:12px;line-height:1.25}
     .dot{width:10px;height:10px;border-radius:50%}
     .dot.ok{background:var(--relay)}
     .dot.bad{background:var(--bad)}
@@ -243,7 +160,7 @@
     <div class="badgeRow">
       <div class="chip"><span>Auto refresh</span> <b id="refreshEvery">60s</b></div>
       <div class="chip"><span>Last updated</span> <b id="lastUpdated">—</b></div>
-      <select id="viewMode" class="select" title="View mode">
+      <select id="viewMode" class="select">
         <option value="last7">Last 7 days</option>
         <option value="last14">Last 14 days</option>
         <option value="all">All available</option>
@@ -270,9 +187,7 @@
           <h2>Trend overview</h2>
           <div class="meta">Risk vs strong</div>
         </div>
-        <div class="cardBody">
-          <canvas id="trendChart" height="180"></canvas>
-        </div>
+        <div class="cardBody"><canvas id="trendChart" height="180"></canvas></div>
       </div>
 
       <div class="card">
@@ -280,9 +195,7 @@
           <h2>Top actions today</h2>
           <div class="meta">Auto-generated</div>
         </div>
-        <div class="cardBody">
-          <div class="list" id="actions"></div>
-        </div>
+        <div class="cardBody"><div class="list" id="actions"></div></div>
       </div>
 
       <div class="card">
@@ -290,16 +203,12 @@
           <h2>Data health</h2>
           <div class="meta">Fetch + mapping</div>
         </div>
-        <div class="cardBody">
-          <div class="health" id="health"></div>
-        </div>
+        <div class="cardBody"><div class="health" id="health"></div></div>
       </div>
     </div>
   </div>
 
-  <div class="foot">
-    If “Last updated” changes but values don’t, your sheet publish is cached. Usually resolves in a few minutes — this page already forces cache-bust.
-  </div>
+  <div class="foot">If values still lag, that’s Google “publish to web” caching. The page already force-busts URLs; Google can still lag a few minutes.</div>
 </div>
 
 <script>
@@ -313,8 +222,6 @@ const CONFIG = {
 
 /* =============================
    TARGETS (from your TARGETS sheet screenshot)
-   - LOW_GOOD: lower is better
-   - HIGH_GOOD: higher is better
 ============================= */
 const TARGETS = {
   "Total missorts":        {dir:"LOW_GOOD",  APLUS:10,   A:20,   C:30,   F:50},
@@ -373,14 +280,7 @@ const METRICS = [
   {section:"Green Team", key:"Calibration completed", fmt:"pct",  aliases:["Calibration_Completed_%"]},
 ];
 
-/* =============================
-   EXTRA KPI (not graded)
-============================= */
-const EXTRA_KPIS = [
-  {name:"Volume sorted", header:"Volume_Sorted", fmt:"int"},
-  {name:"Vinted volume", header:"Vinted", fmt:"int"},     // if you have it later
-  {name:"White label",   header:"WhiteLabel", fmt:"int"}, // if you have it later
-];
+const EXTRA_KPIS = [{name:"Volume sorted", header:"Volume_Sorted", fmt:"int"}];
 
 /* =============================
    HELPERS
@@ -389,77 +289,58 @@ const $ = (id)=>document.getElementById(id);
 const norm = (s)=>String(s??"").trim().toLowerCase();
 
 function nowStr(){
-  const d = new Date();
-  return d.toLocaleString(undefined, {year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit"});
+  const d=new Date();
+  return d.toLocaleString(undefined,{year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit"});
 }
 
+// strips BOM if present
+function stripBOM(s){ return s && s.charCodeAt(0) === 0xFEFF ? s.slice(1) : s; }
+
 function parseCSV(text){
-  const rows = [];
-  let row = [];
-  let cur = "";
-  let inQ = false;
-
+  const rows=[]; let row=[]; let cur=""; let inQ=false;
   for(let i=0;i<text.length;i++){
-    const c = text[i];
-    const n = text[i+1];
-
-    if(c === '"' && inQ && n === '"'){ cur += '"'; i++; continue; }
-    if(c === '"'){ inQ = !inQ; continue; }
-
-    if(c === ',' && !inQ){ row.push(cur); cur=""; continue; }
-    if(c === '\n' && !inQ){
-      row.push(cur); cur="";
-      rows.push(row);
-      row=[];
-      continue;
-    }
-    if(c !== '\r') cur += c;
+    const c=text[i], n=text[i+1];
+    if(c === '"' && inQ && n === '"'){cur+='"'; i++; continue;}
+    if(c === '"'){inQ=!inQ; continue;}
+    if(c === ',' && !inQ){row.push(cur); cur=""; continue;}
+    if(c === '\n' && !inQ){row.push(cur); cur=""; rows.push(row); row=[]; continue;}
+    if(c !== '\r') cur+=c;
   }
-  if(cur.length || row.length){ row.push(cur); rows.push(row); }
+  if(cur.length || row.length){row.push(cur); rows.push(row);}
   return rows.filter(r => r.some(x => (x??"").trim() !== ""));
 }
 
 function toNumber(x){
-  const s = String(x ?? "").trim();
-  if(!s) return null;
-  const clean = s.replace(/,/g,"").replace(/%/g,"");
-  const v = Number(clean);
-  return Number.isFinite(v) ? v : null;
+  const s=String(x??"").trim(); if(!s) return null;
+  const clean=s.replace(/,/g,"").replace(/%/g,"");
+  const v=Number(clean);
+  return Number.isFinite(v)?v:null;
 }
 
 function toDecimalPercent(x){
-  const s = String(x ?? "").trim();
-  if(!s) return null;
-  if(s.includes("%")){
-    const v = toNumber(s);
-    return v===null ? null : (v/100);
-  }
-  const v = toNumber(s);
-  if(v===null) return null;
-  if(v > 1.5) return v/100; // treat as 0-100
-  return v;
+  const s=String(x??"").trim(); if(!s) return null;
+  if(s.includes("%")){const v=toNumber(s); return v==null?null:v/100;}
+  const v=toNumber(s); if(v==null) return null;
+  return v>1.5? v/100 : v;
 }
 
 function parseTimeToMinutes(t){
-  if(t == null) return null;
-  const s = String(t).trim();
-  const m = s.match(/^(\d{1,2}):(\d{2})(?::(\d{2}))?$/);
+  if(t==null) return null;
+  const s=String(t).trim();
+  const m=s.match(/^(\d{1,2}):(\d{2})(?::(\d{2}))?$/);
   if(!m) return null;
-  const hh = Number(m[1]);
-  const mm = Number(m[2]);
-  const ss = m[3] ? Number(m[3]) : 0;
-  if(!Number.isFinite(hh)||!Number.isFinite(mm)||!Number.isFinite(ss)) return null;
-  return hh*60 + mm + (ss/60);
+  const hh=+m[1], mm=+m[2], ss=m[3]?+m[3]:0;
+  return hh*60+mm+(ss/60);
 }
 
-function formatValue(fmt, v){
-  if(v == null || Number.isNaN(v)) return "—";
+function formatValue(fmt,v){
+  if(v==null || Number.isNaN(v)) return "—";
   if(fmt==="int") return Math.round(v).toLocaleString();
   if(fmt==="num") return (Math.round(v*1000)/1000).toLocaleString();
-  if(fmt==="pct") return (v*100).toFixed(2) + "%";
+  if(fmt==="pct") return (v*100).toFixed(2)+"%";
   if(fmt==="time"){
-    const hh = Math.floor(v/60);
-    const mm = Math.round(v - hh*60);
+    const hh=Math.floor(v/60);
+    const mm=Math.round(v-hh*60);
     return String(hh).padStart(2,"0")+":"+String(mm).padStart(2,"0");
   }
   return String(v);
@@ -473,94 +354,76 @@ function gradeClass(g){
   return "gNA";
 }
 
-function gradeFromTarget(metricKey, val){
-  const t = TARGETS[metricKey];
-  if(!t || val == null || Number.isNaN(val)) return {grade:"—", reason:"No target/value"};
+function gradeFromTarget(metricKey,val){
+  const t=TARGETS[metricKey];
+  if(!t || val==null || Number.isNaN(val)) return {grade:"—", reason:"No target/value"};
 
-  if(t.dir === "LOW_GOOD"){
-    // time thresholds
-    if(typeof t.APLUS === "string"){
-      const mins = val;
-      const aplus = parseTimeToMinutes(t.APLUS);
-      const a = parseTimeToMinutes(t.A);
-      const c = parseTimeToMinutes(t.C);
-      if(mins <= aplus) return {grade:"A+", reason:`<= ${t.APLUS}`};
-      if(mins <= a)     return {grade:"A",  reason:`<= ${t.A}`};
-      if(mins <= c)     return {grade:"C",  reason:`<= ${t.C}`};
+  if(t.dir==="LOW_GOOD"){
+    if(typeof t.APLUS==="string"){
+      const mins=val, aplus=parseTimeToMinutes(t.APLUS), a=parseTimeToMinutes(t.A), c=parseTimeToMinutes(t.C);
+      if(mins<=aplus) return {grade:"A+", reason:`<= ${t.APLUS}`};
+      if(mins<=a)     return {grade:"A",  reason:`<= ${t.A}`};
+      if(mins<=c)     return {grade:"C",  reason:`<= ${t.C}`};
       return {grade:"F", reason:`> ${t.C}`};
     }
-    if(val <= t.APLUS) return {grade:"A+", reason:`<= ${t.APLUS}`};
-    if(val <= t.A)     return {grade:"A",  reason:`<= ${t.A}`};
-    if(val <= t.C)     return {grade:"C",  reason:`<= ${t.C}`};
+    if(val<=t.APLUS) return {grade:"A+", reason:`<= ${t.APLUS}`};
+    if(val<=t.A)     return {grade:"A",  reason:`<= ${t.A}`};
+    if(val<=t.C)     return {grade:"C",  reason:`<= ${t.C}`};
     return {grade:"F", reason:`> ${t.C}`};
-  } else {
-    if(val >= t.APLUS) return {grade:"A+", reason:`>= ${t.APLUS}`};
-    if(val >= t.A)     return {grade:"A",  reason:`>= ${t.A}`};
-    if(val >= t.C)     return {grade:"C",  reason:`>= ${t.C}`};
+  }else{
+    if(val>=t.APLUS) return {grade:"A+", reason:`>= ${t.APLUS}`};
+    if(val>=t.A)     return {grade:"A",  reason:`>= ${t.A}`};
+    if(val>=t.C)     return {grade:"C",  reason:`>= ${t.C}`};
     return {grade:"F", reason:`< ${t.C}`};
   }
 }
 
 function parseDateLoose(s){
-  const str = String(s ?? "").trim();
-  if(!str) return null;
-
-  // yyyy-mm-dd
-  const iso = str.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
-  if(iso){
-    const d = new Date(Number(iso[1]), Number(iso[2])-1, Number(iso[3]));
-    return isNaN(d) ? null : d;
-  }
-
-  // dd/mm/yyyy
-  const dm = str.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
-  if(dm){
-    const d = new Date(Number(dm[3]), Number(dm[2])-1, Number(dm[1]));
-    return isNaN(d) ? null : d;
-  }
-
-  const d = new Date(str);
-  return isNaN(d) ? null : d;
+  const str=String(s??"").trim(); if(!str) return null;
+  const iso=str.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+  if(iso){const d=new Date(+iso[1],+iso[2]-1,+iso[3]); return isNaN(d)?null:d;}
+  const dm=str.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+  if(dm){const d=new Date(+dm[3],+dm[2]-1,+dm[1]); return isNaN(d)?null:d;}
+  const d=new Date(str); return isNaN(d)?null:d;
 }
 
-function scoreFromGrade(g){
-  if(g==="A+") return 4;
-  if(g==="A") return 3;
-  if(g==="C") return 2;
-  if(g==="F") return 1;
+function scoreFromGrade(g){ return g==="A+"?4:g==="A"?3:g==="C"?2:g==="F"?1:0; }
+function cssSafe(s){return String(s).replace(/[^a-zA-Z0-9_-]/g,"_");}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+
+/* =============================
+   DATE COLUMN DETECTION (FIX)
+============================= */
+function findDateIndex(headers){
+  // exact "date"
+  let idx = headers.findIndex(h => norm(h) === "date");
+  if(idx >= 0) return idx;
+
+  // contains "date" (handles BOM, extra spaces, etc.)
+  idx = headers.findIndex(h => norm(h).includes("date"));
+  if(idx >= 0) return idx;
+
+  // last resort: use first column
   return 0;
 }
 
-function cssSafe(s){ return String(s).replace(/[^a-zA-Z0-9_-]/g, "_"); }
-
 /* =============================
-   LOAD RAW (with forced no-cache)
+   LOAD RAW
 ============================= */
 async function loadRaw(){
   const url = CONFIG.rawDailyCsvUrl + "&cachebust=" + Date.now();
-  const res = await fetch(url, {
-    method: "GET",
-    mode: "cors",
-    cache: "no-store",
-    headers: {
-      "Cache-Control": "no-cache",
-      "Pragma": "no-cache"
-    }
-  });
-  if(!res.ok) throw new Error("Failed to fetch RAW_DAILY CSV (" + res.status + ")");
+  const res = await fetch(url, {cache:"no-store", headers:{"Cache-Control":"no-cache","Pragma":"no-cache"}});
+  if(!res.ok) throw new Error("Failed to fetch CSV ("+res.status+")");
   const txt = await res.text();
   const rows = parseCSV(txt);
   if(rows.length < 2) throw new Error("CSV has no data rows");
 
-  const headers = rows[0].map(h => String(h ?? "").trim());
+  let headers = rows[0].map(h => stripBOM(String(h ?? "").trim()));
   const hmap = new Map();
   headers.forEach((h,i)=>hmap.set(norm(h), i));
 
-  // date column = "Date"
-  const dateIdx = headers.findIndex(h => norm(h) === "date");
-  if(dateIdx < 0) throw new Error("No Date column found in CSV headers");
+  const dateIdx = findDateIndex(headers);
 
-  // map metric keys -> csv column index
   const metricCol = new Map();
   const missing = [];
 
@@ -574,18 +437,14 @@ async function loadRaw(){
     else missing.push(m.key);
   }
 
-  // map extra KPI columns
   const extraCol = new Map();
   for(const x of EXTRA_KPIS){
     const idx = hmap.get(norm(x.header));
     if(idx != null) extraCol.set(x.header, idx);
   }
 
-  // build time series
   const series = [];
-  const data = rows.slice(1);
-
-  for(const r of data){
+  for(const r of rows.slice(1)){
     const d = parseDateLoose(r[dateIdx]);
     if(!d) continue;
 
@@ -594,7 +453,6 @@ async function loadRaw(){
       const idx = metricCol.get(m.key);
       if(idx == null){ values[m.key] = null; continue; }
       const cell = r[idx];
-
       if(m.fmt==="pct") values[m.key] = toDecimalPercent(cell);
       else if(m.fmt==="int" || m.fmt==="num") values[m.key] = toNumber(cell);
       else if(m.fmt==="time") values[m.key] = parseTimeToMinutes(cell);
@@ -610,85 +468,57 @@ async function loadRaw(){
     series.push({date:d, values, extra});
   }
 
-  series.sort((a,b)=>a.date - b.date);
-
-  return {headers, series, missing, urlUsed:url};
+  series.sort((a,b)=>a.date-b.date);
+  return {headers, series, missing, urlUsed:url, dateIdx};
 }
 
 function sliceByMode(series){
   const mode = $("viewMode").value;
-  if(mode === "all") return series.slice();
-  const n = mode === "last14" ? 14 : 7;
+  if(mode==="all") return series.slice();
+  const n = mode==="last14" ? 14 : 7;
   return series.slice(-n);
 }
 
 /* =============================
-   CHARTS (trend + sparks)
+   CHARTS
 ============================= */
-let trendChart = null;
-const sparkCharts = new Map();
+let trendChart=null;
+const sparkCharts=new Map();
 
-function destroySpark(key){
-  const c = sparkCharts.get(key);
-  if(c){ c.destroy(); sparkCharts.delete(key); }
-}
+function destroySpark(key){ const c=sparkCharts.get(key); if(c){c.destroy(); sparkCharts.delete(key);} }
 
 function renderSpark(metricKey, canvas, labels, values){
   destroySpark(metricKey);
-  const ctx = canvas.getContext("2d");
-  const c = new Chart(ctx, {
+  const c = new Chart(canvas.getContext("2d"), {
     type:"line",
-    data:{
-      labels,
-      datasets:[{
-        data: values.map(v => (v==null ? NaN : v)),
-        tension:.35,
-        borderWidth:2,
-        pointRadius:0,
-        fill:true
-      }]
-    },
-    options:{
-      responsive:true,
-      maintainAspectRatio:false,
-      plugins:{legend:{display:false}, tooltip:{enabled:false}},
-      scales:{x:{display:false}, y:{display:false}}
-    }
+    data:{ labels, datasets:[{ data: values.map(v=>v==null?NaN:v), tension:.35, borderWidth:2, pointRadius:0, fill:true }]},
+    options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}, tooltip:{enabled:false}}, scales:{x:{display:false}, y:{display:false}}}
   });
-  sparkCharts.set(metricKey, c);
+  sparkCharts.set(metricKey,c);
 }
 
 function renderTrend(slice){
-  const labels = slice.map(x => x.date.toLocaleDateString());
-  const risk = [];
-  const strong = [];
-
+  const labels=slice.map(x=>x.date.toLocaleDateString());
+  const risk=[], strong=[];
   for(const row of slice){
     let r=0,g=0;
     for(const m of METRICS){
-      const val = row.values[m.key];
-      const gr = gradeFromTarget(m.key, val).grade;
-      if(gr==="F" || gr==="C") r++;
-      if(gr==="A" || gr==="A+") g++;
+      const gr=gradeFromTarget(m.key,row.values[m.key]).grade;
+      if(gr==="C"||gr==="F") r++;
+      if(gr==="A"||gr==="A+") g++;
     }
-    risk.push(r);
-    strong.push(g);
+    risk.push(r); strong.push(g);
   }
-
   if(trendChart) trendChart.destroy();
-  trendChart = new Chart($("trendChart").getContext("2d"), {
+  trendChart=new Chart($("trendChart").getContext("2d"),{
     type:"line",
-    data:{ labels,
-      datasets:[
-        {label:"Risk (C+F)", data:risk, tension:.35, borderWidth:2, pointRadius:0, fill:true},
-        {label:"Strong (A/A+)", data:strong, tension:.35, borderWidth:2, pointRadius:0, fill:false}
-      ]
-    },
+    data:{labels, datasets:[
+      {label:"Risk (C+F)", data:risk, tension:.35, borderWidth:2, pointRadius:0, fill:true},
+      {label:"Strong (A/A+)", data:strong, tension:.35, borderWidth:2, pointRadius:0, fill:false},
+    ]},
     options:{
       responsive:true,
-      plugins:{
-        legend:{display:true, labels:{color:"rgba(234,241,255,.75)", boxWidth:10, boxHeight:10}}
-      },
+      plugins:{ legend:{display:true, labels:{color:"rgba(234,241,255,.75)", boxWidth:10, boxHeight:10}} },
       scales:{
         x:{ticks:{color:"rgba(234,241,255,.55)"}, grid:{color:"rgba(255,255,255,.06)"}},
         y:{ticks:{color:"rgba(234,241,255,.55)"}, grid:{color:"rgba(255,255,255,.06)"}}
@@ -700,287 +530,189 @@ function renderTrend(slice){
 /* =============================
    RENDER
 ============================= */
-function renderTopKPIs(latest){
-  const el = $("topKPIs");
-  el.innerHTML = "";
-
-  // 1) Volume sorted (not graded)
-  const vol = latest?.extra?.["Volume_Sorted"] ?? null;
-  el.appendChild(kpiTile("Volume sorted", formatValue("int", vol), "—", "raw volume"));
-
-  // 2) 3 graded headline metrics
-  const headline = ["Total missort %", "Missing %", "Indirect CPP"];
-  for(const k of headline){
-    const def = METRICS.find(m=>m.key===k);
-    const val = latest?.values?.[k] ?? null;
-    const g = gradeFromTarget(k, val).grade;
-    el.appendChild(kpiTile(k, formatValue(def.fmt, val), g, TARGETS[k] ? TARGETS[k].dir.replace("_"," ").toLowerCase() : "no target"));
-  }
-}
-
-function kpiTile(title, value, grade, sub){
-  const div = document.createElement("div");
-  div.className = "kpi";
-  div.innerHTML = `
+function kpiTile(title,value,grade,sub){
+  const div=document.createElement("div");
+  div.className="kpi";
+  div.innerHTML=`
     <div class="t">${title}</div>
     <div class="v">${value}</div>
-    <div class="b">
-      <span class="grade ${gradeClass(grade)}">${grade}</span>
-      <span>${sub}</span>
-    </div>
-  `;
+    <div class="b"><span class="grade ${gradeClass(grade)}">${grade}</span><span>${sub}</span></div>`;
   return div;
 }
 
-function renderSections(slice){
-  const latest = slice[slice.length-1];
-  const dates = slice.map(x => x.date.toLocaleDateString());
+function renderTopKPIs(latest){
+  const el=$("topKPIs"); el.innerHTML="";
+  const vol=latest?.extra?.["Volume_Sorted"] ?? null;
+  el.appendChild(kpiTile("Volume sorted", formatValue("int",vol), "—", "raw volume"));
 
-  const sections = {};
-  for(const m of METRICS){
-    (sections[m.section] ??= []).push(m);
+  const headline=["Total missort %","Missing %","Indirect CPP"];
+  for(const k of headline){
+    const def=METRICS.find(m=>m.key===k);
+    const val=latest?.values?.[k] ?? null;
+    const g=gradeFromTarget(k,val).grade;
+    el.appendChild(kpiTile(k, formatValue(def.fmt,val), g, TARGETS[k] ? TARGETS[k].dir.replace("_"," ").toLowerCase() : "no target"));
   }
-  const order = ["Compliance","Day Shift","Blue Team","Green Team"];
+}
 
-  const wrap = $("sections");
-  wrap.innerHTML = "";
+function renderSections(slice){
+  const latest=slice[slice.length-1];
+  const dates=slice.map(x=>x.date.toLocaleDateString());
 
+  const sections={};
+  for(const m of METRICS) (sections[m.section]??=[]).push(m);
+  const order=["Compliance","Day Shift","Blue Team","Green Team"];
+
+  const wrap=$("sections"); wrap.innerHTML="";
   for(const sName of order){
-    const ms = sections[sName] || [];
-    let score=0, possible=0, fCount=0, cCount=0;
-
+    const ms=sections[sName]||[];
+    let score=0,possible=0,fCount=0,cCount=0;
     for(const m of ms){
-      const val = latest.values[m.key];
-      const gr = gradeFromTarget(m.key, val).grade;
-      const sc = scoreFromGrade(gr);
-      if(sc>0){ score += sc; possible += 4; }
+      const gr=gradeFromTarget(m.key, latest.values[m.key]).grade;
+      const sc=scoreFromGrade(gr);
+      if(sc>0){score+=sc;possible+=4;}
       if(gr==="F") fCount++;
       if(gr==="C") cCount++;
     }
-    const pct = possible ? Math.round((score/possible)*100) : 0;
+    const pct=possible?Math.round((score/possible)*100):0;
 
-    const sec = document.createElement("div");
-    sec.className = "section";
-    sec.innerHTML = `
+    const sec=document.createElement("div");
+    sec.className="section";
+    sec.innerHTML=`
       <div class="sectionTop">
-        <div>
-          <h3>${sName}</h3>
-          <p>${ms.length} metrics · latest day grades + trend</p>
-        </div>
-        <div class="scoreBox">
-          <div class="score">${pct}%</div>
-          <div class="small">${cCount}×C · ${fCount}×F</div>
-        </div>
+        <div><h3>${sName}</h3><p>${ms.length} metrics · latest day grades + trend</p></div>
+        <div class="scoreBox"><div class="score">${pct}%</div><div class="small">${cCount}×C · ${fCount}×F</div></div>
       </div>
-      <div class="metricGrid" id="grid-${sName.replace(/\s/g,'')}"></div>
-    `;
+      <div class="metricGrid" id="grid-${sName.replace(/\s/g,'')}"></div>`;
     wrap.appendChild(sec);
 
-    const grid = sec.querySelector(`#grid-${sName.replace(/\s/g,'')}`);
-
+    const grid=sec.querySelector(`#grid-${sName.replace(/\s/g,'')}`);
     for(const m of ms){
-      const valLatest = latest.values[m.key];
-      const grObj = gradeFromTarget(m.key, valLatest);
-      const gr = grObj.grade;
+      const valLatest=latest.values[m.key];
+      const grObj=gradeFromTarget(m.key,valLatest);
+      const gr=grObj.grade;
+      const vals=slice.map(r=>r.values[m.key]);
 
-      const vals = slice.map(r => r.values[m.key]);
-
-      const node = document.createElement("div");
-      node.className = "metric";
-      node.innerHTML = `
+      const node=document.createElement("div");
+      node.className="metric";
+      node.innerHTML=`
         <div class="row1">
           <div>
             <div class="name">${m.key}</div>
-            <div class="val">${formatValue(m.fmt, valLatest)}</div>
-            <div class="sub">
-              <span class="grade ${gradeClass(gr)}">${gr}</span>
-              <span>${gr==="—" ? "No data" : grObj.reason}</span>
-            </div>
+            <div class="val">${formatValue(m.fmt,valLatest)}</div>
+            <div class="sub"><span class="grade ${gradeClass(gr)}">${gr}</span><span>${gr==="—"?"No data":grObj.reason}</span></div>
           </div>
-          <div style="width:116px;min-width:116px">
-            <div class="spark"><canvas id="sp-${cssSafe(m.key)}"></canvas></div>
-          </div>
-        </div>
-      `;
+          <div style="width:116px;min-width:116px"><div class="spark"><canvas id="sp-${cssSafe(m.key)}"></canvas></div></div>
+        </div>`;
       grid.appendChild(node);
-
-      const cv = node.querySelector(`#sp-${cssSafe(m.key)}`);
-      renderSpark(m.key, cv, dates, vals);
+      renderSpark(m.key, node.querySelector(`#sp-${cssSafe(m.key)}`), dates, vals);
     }
   }
 }
 
 function buildActions(slice){
-  const latest = slice[slice.length-1];
-  const actions = [];
+  const latest=slice[slice.length-1];
+  const a=[];
+  const addIf=(k,cond,title,owner,due,why)=>{
+    const v=latest.values[k]; if(v==null||Number.isNaN(v)) return;
+    if(cond(v)) a.push({title,owner,due,why:why(v)});
+  };
 
-  function addIf(metricKey, condition, action){
-    const v = latest.values[metricKey];
-    if(v == null || Number.isNaN(v)) return;
-    if(condition(v)) actions.push(action);
-  }
+  addIf("Total missorts", v=>v>=TARGETS["Total missorts"].C,
+    "Missorts containment sprint","Compliance Supervisor","Today",
+    v=>`Total missorts ${Math.round(v)} (C/F). 30-min root cause + immediate floor fix list.`);
 
-  // Straight ops rules
-  addIf("Total missorts", v => v >= TARGETS["Total missorts"].C, {
-    title:"Missorts containment sprint",
-    owner:"Compliance Supervisor",
-    due:"Today",
-    why:`Total missorts ${Math.round(v)} (C/F). Run 30-min root cause + immediate floor fix list.`
-  });
+  addIf("Missing %", v=>v>=TARGETS["Missing %"].C,
+    "Missing control check","Day Supervisor","Today",
+    v=>`Missing % ${formatValue("pct",v)} (C/F). Audit intake scan discipline + swept handling + exceptions.`);
 
-  addIf("Missing %", v => v >= TARGETS["Missing %"].C, {
-    title:"Missing control check",
-    owner:"Day Supervisor",
-    due:"Today",
-    why:`Missing % ${formatValue("pct", v)} (C/F). Audit intake scan discipline + swept handling + exceptions.`
-  });
+  addIf("Unexpected %", v=>v>=TARGETS["Unexpected %"].C,
+    "Unexpected spike control","Day Supervisor","Today",
+    v=>`Unexpected % ${formatValue("pct",v)} (C/F). Check lane discipline + exception cage process.`);
 
-  addIf("Unexpected %", v => v >= TARGETS["Unexpected %"].C, {
-    title:"Unexpected spike control",
-    owner:"Day Supervisor",
-    due:"Today",
-    why:`Unexpected % ${formatValue("pct", v)} (C/F). Check lane discipline + exception cage process.`
-  });
+  addIf("Indirect CPP", v=>v>=TARGETS["Indirect CPP"].A,
+    "CPP recovery plan","Shift Manager","Today",
+    v=>`Indirect CPP ${formatValue("num",v)}. Tighten start-up + reduce idle time + remove blockers.`);
 
-  addIf("O/T hours", v => v >= TARGETS["O/T hours"].A, {
-    title:"Overtime reset",
-    owner:"Ops Lead",
-    due:"Next shift",
-    why:`OT hours ${formatValue("num", v)}. Rebalance staffing and remove time-waste loops.`
-  });
+  addIf("Robot throughput", v=>v<TARGETS["Robot throughput"].C,
+    "Robot throughput recovery","Day Supervisor + Tech/FME","Today",
+    v=>`Robot throughput ${formatValue("int",v)} (<C). Check jams, feed rate, reset cadence.`);
 
-  addIf("Indirect CPP", v => v >= TARGETS["Indirect CPP"].A, {
-    title:"CPP recovery plan",
-    owner:"Shift Manager",
-    due:"Today",
-    why:`Indirect CPP ${formatValue("num", v)}. Tighten start-up + reduce idle time + remove blockers.`
-  });
+  addIf("On time depart", v=>v<TARGETS["On time depart"].C,
+    "On-time depart recovery","Blue Supervisor + Dispatch","Today",
+    v=>`On-time depart ${formatValue("pct",v)} (<C). Run departure countdown and enforce cutoffs.`);
 
-  addIf("Robot throughput", v => v < TARGETS["Robot throughput"].C, {
-    title:"Robot throughput recovery",
-    owner:"Day Supervisor + Tech/FME",
-    due:"Today",
-    why:`Robot throughput ${formatValue("int", v)} (<C). Check jams, feed rate, reset cadence.`
-  });
+  addIf("Intake completed by", v=>v>parseTimeToMinutes(TARGETS["Intake completed by"].C),
+    "Intake finish time pull-forward","Green Supervisor","Today",
+    v=>`Intake completed by ${formatValue("time",v)} (late). Add surge in last 60–90 mins.`);
 
-  addIf("On time depart", v => v < TARGETS["On time depart"].C, {
-    title:"On-time depart recovery",
-    owner:"Blue Supervisor + Dispatch",
-    due:"Today",
-    why:`On-time depart ${formatValue("pct", v)} (<C). Run departure countdown and enforce cutoffs.`
-  });
+  addIf("Vinted processed by", v=>v>parseTimeToMinutes(TARGETS["Vinted processed by"].C),
+    "Vinted processing acceleration","Green Supervisor","Today",
+    v=>`Vinted processed by ${formatValue("time",v)} (late). Fix feed rate early + clear blockages.`);
 
-  addIf("Intake completed by", v => v > parseTimeToMinutes(TARGETS["Intake completed by"].C), {
-    title:"Intake finish time pull-forward",
-    owner:"Green Supervisor",
-    due:"Today",
-    why:`Intake completed by ${formatValue("time", v)} (late). Add surge in last 60–90 mins.`
-  });
-
-  addIf("Vinted processed by", v => v > parseTimeToMinutes(TARGETS["Vinted processed by"].C), {
-    title:"Vinted processing acceleration",
-    owner:"Green Supervisor",
-    due:"Today",
-    why:`Vinted processed by ${formatValue("time", v)} (late). Fix feed rate early + clear blockages.`
-  });
-
-  if(actions.length === 0){
-    actions.push({title:"No critical actions triggered", owner:"—", due:"—", why:"KPIs mostly A/A+ today. Stay on the same plan, watch volatility."});
-  }
-
-  return actions.slice(0,5);
+  if(!a.length) a.push({title:"No critical actions triggered",owner:"—",due:"—",why:"KPIs mostly A/A+ today. Stay on the same plan; watch volatility."});
+  return a.slice(0,5);
 }
 
 function renderActions(list){
-  const box = $("actions");
-  box.innerHTML = "";
-  for(const a of list){
-    const el = document.createElement("div");
-    el.className = "item";
-    el.innerHTML = `
+  const box=$("actions"); box.innerHTML="";
+  for(const x of list){
+    const el=document.createElement("div");
+    el.className="item";
+    el.innerHTML=`
       <div class="top">
-        <div>
-          <div class="ttl">${a.title}</div>
-          <div class="own">${a.owner}</div>
-        </div>
-        <div class="pill">Due: ${a.due}</div>
+        <div><div class="ttl">${x.title}</div><div class="own">${x.owner}</div></div>
+        <div class="pill">Due: ${x.due}</div>
       </div>
-      <div class="why">${a.why}</div>
-    `;
+      <div class="why">${x.why}</div>`;
     box.appendChild(el);
   }
 }
 
-function renderHealth({headers, missing, urlUsed, seriesCount, latestDateStr}){
-  const box = $("health");
-  box.innerHTML = "";
+function renderHealth(obj){
+  const box=$("health"); box.innerHTML="";
+  const line=(ok,html)=>`<div style="display:flex;gap:10px;align-items:center"><span class="dot ${ok?'ok':'bad'}"></span><span>${html}</span></div>`;
+  const hdrPreview = obj.headers.slice(0,12).map(h=>`<span class="mono">${escapeHtml(h)}</span>`).join(", ");
 
-  box.appendChild(healthLine("ok", `${headers.length} columns found`));
-  box.appendChild(healthLine("ok", `Rows parsed: ${seriesCount}`));
-  box.appendChild(healthLine("ok", `Latest date: ${latestDateStr}`));
-  box.appendChild(healthLine("ok", `Fetch URL: ${urlUsed.slice(0,60)}…`));
-
-  if(missing.length){
-    box.appendChild(healthLine("bad", `Unmapped KPI columns (${missing.length}): ${missing.join(", ")}`));
-  } else {
-    box.appendChild(healthLine("ok", "All 21 KPI columns mapped ✅"));
-  }
-}
-
-function healthLine(state, text){
-  const d = document.createElement("div");
-  d.style.display="flex";
-  d.style.gap="10px";
-  d.style.alignItems="center";
-  d.innerHTML = `<span class="dot ${state}"></span><span>${escapeHtml(text)}</span>`;
-  return d;
-}
-
-function escapeHtml(s){
-  return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  box.innerHTML =
+    line(true, `Rows parsed: <b>${obj.seriesCount}</b> · dateIdx: <b>${obj.dateIdx}</b>`) +
+    line(true, `Latest date: <b>${escapeHtml(obj.latestDateStr)}</b>`) +
+    line(true, `Headers (first 12): ${hdrPreview}`) +
+    (obj.missing.length ? line(false, `Unmapped KPI keys: <span class="mono">${escapeHtml(obj.missing.join(", "))}</span>`) : line(true, `All 21 KPI columns mapped ✅`)) +
+    line(true, `Fetch: <span class="mono">${escapeHtml(obj.urlUsed)}</span>`);
 }
 
 /* =============================
    MAIN LOOP
 ============================= */
-let running = false;
-
+let running=false;
 async function refresh(){
   if(running) return;
-  running = true;
+  running=true;
   try{
-    $("btnRefresh").textContent = "Refreshing…";
+    $("btnRefresh").textContent="Refreshing…";
+    const {headers,series,missing,urlUsed,dateIdx}=await loadRaw();
+    const slice=sliceByMode(series);
+    if(!slice.length) throw new Error("No parsable rows (date parsing issue?)");
 
-    const {headers, series, missing, urlUsed} = await loadRaw();
-    const slice = sliceByMode(series);
+    const d0=slice[0].date.toLocaleDateString();
+    const d1=slice[slice.length-1].date.toLocaleDateString();
+    $("rangeLabel").textContent=`${d0} → ${d1} · ${slice.length} days`;
+    $("lastUpdated").textContent=nowStr();
+    $("refreshEvery").textContent=CONFIG.refreshSeconds+"s";
 
-    if(slice.length === 0) throw new Error("No parsable rows after filtering");
-
-    const d0 = slice[0].date.toLocaleDateString();
-    const d1 = slice[slice.length-1].date.toLocaleDateString();
-    $("rangeLabel").textContent = `${d0} → ${d1} · ${slice.length} days`;
-    $("lastUpdated").textContent = nowStr();
-    $("refreshEvery").textContent = CONFIG.refreshSeconds + "s";
-
-    const latest = slice[slice.length-1];
-
+    const latest=slice[slice.length-1];
     renderTopKPIs(latest);
     renderSections(slice);
     renderTrend(slice);
     renderActions(buildActions(slice));
-    renderHealth({
-      headers, missing,
-      urlUsed,
-      seriesCount: series.length,
-      latestDateStr: latest.date.toLocaleDateString()
-    });
+    renderHealth({headers, missing, urlUsed, dateIdx, seriesCount:series.length, latestDateStr:latest.date.toLocaleDateString()});
 
   } catch(err){
+    $("health").innerHTML = `<div style="display:flex;gap:10px;align-items:center"><span class="dot bad"></span><span><b>ERROR:</b> ${escapeHtml(err.message||String(err))}</span></div>`;
     console.error(err);
-    $("health").innerHTML = `<span class="dot bad"></span><span><b>ERROR:</b> ${escapeHtml(err.message || String(err))}</span>`;
-  } finally {
-    $("btnRefresh").textContent = "Refresh";
-    running = false;
+  } finally{
+    $("btnRefresh").textContent="Refresh";
+    running=false;
   }
 }
 
@@ -988,7 +720,7 @@ $("btnRefresh").addEventListener("click", refresh);
 $("viewMode").addEventListener("change", refresh);
 
 refresh();
-setInterval(refresh, CONFIG.refreshSeconds * 1000);
+setInterval(refresh, CONFIG.refreshSeconds*1000);
 </script>
 </body>
 </html>
